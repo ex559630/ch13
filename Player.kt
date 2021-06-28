@@ -9,7 +9,7 @@ class Player (_name:String,
         private set(value) {
             field = value.trim()
         }
-    val hometown = selectHometown()
+    val hometown by lazy { selectHometown() }
     init {
         require(healthPoints >0 ,{"healPoints must be greater then zero."})
         require(name.isNotBlank(),{"Player must have a name."})

@@ -7,7 +7,10 @@ class Player (_name:String,
         private set(value) {
             field = value.trim()
         }
-
+    constructor(name:String):this(name,
+        healthPoints = 100,
+        isBlessed = true,
+        isImmortal = false)
     fun auraColor():String{
         var auraVisible = healthPoints >=50 && isBlessed || isImmortal
         val auracolor = if (auraVisible) "Green" else "None"

@@ -1,15 +1,12 @@
 class Player (_name:String,
-            _healthPoints:Int,
-            _isBlessed:Boolean,
-            _isImmortal:Boolean){
+              var healthPoints:Int,
+              val isBlessed:Boolean,
+              private val isImmortal:Boolean){
     var name = _name
         get() = field.capitalize()
         private set(value) {
             field = value.trim()
         }
-    val healthPoints = _healthPoints
-    var isBlessed = _isBlessed
-    private var isImmortal = _isImmortal
 
     fun auraColor():String{
         var auraVisible = healthPoints >=50 && isBlessed || isImmortal

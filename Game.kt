@@ -1,6 +1,6 @@
 fun main(){
 
-    val player = Player("sayori",89,true,false)
+    val player = Player("sayori")
     player.castFireball()
 
     val auraColor = player.auraColor()

@@ -1,3 +1,5 @@
+import java.io.File
+
 class Player (_name:String,
               var healthPoints:Int = 100,
               val isBlessed:Boolean,
@@ -7,7 +9,7 @@ class Player (_name:String,
         private set(value) {
             field = value.trim()
         }
-    val hometown:String
+    val hometown = selectHometown()
     init {
         require(healthPoints >0 ,{"healPoints must be greater then zero."})
         require(name.isNotBlank(),{"Player must have a name."})
@@ -33,6 +35,11 @@ class Player (_name:String,
         in 15..74 -> "look pretty hurt."
         else -> "is in awful condition"
     }
+    private fun selectHometown() = File("data/towns.txt")
+        .readText()
+        .split("\n")
+        .shuffled()
+        .first()
     fun castFireball(numFireballs:Int=2){
         println("A glass of FireBall springs into existence.(x$numFireballs)")
     }
